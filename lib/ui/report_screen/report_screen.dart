@@ -43,16 +43,21 @@ class ReportScreen extends HookWidget {
                   layers: [
                     TileLayerOptions(
                         urlTemplate:
-                            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                            "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
                         subdomains: ['a', 'b', 'c']),
                     MarkerLayerOptions(
                       markers: [
                         Marker(
-                            width: 50.0,
-                            height: 50.0,
+                            width: 70.0,
+                            height: 70.0,
                             point: location,
                             builder: (ctx) => Container(
-                                  child: Icon(Icons.map_rounded),
+                                  child: Center(
+                                      child: Text(
+                                    'TUTAJ!',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.green),
