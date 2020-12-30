@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get_it/get_it.dart';
@@ -17,6 +18,10 @@ class MainScreen extends HookWidget {
       Location().getLocation().then((value) {
         location.value = LatLng(value.latitude, value.longitude);
       });
+    });
+
+    GetIt.I.get<DataRepository>().policePointsStream.stream.listen((event) {
+      print(event);
     });
 
     return Scaffold(
@@ -40,8 +45,7 @@ class MainScreen extends HookWidget {
             //test
             await GetIt.I
                 .get<DataRepository>()
-                .getNearestPolice(LatLng(9, 0), 20);
-
+                .getNearestPolice(location.value, 20);
             // Location().getLocation().then((value) {
             //   location.value = LatLng(value.latitude, value.longitude);
             // });
@@ -52,9 +56,17 @@ class MainScreen extends HookWidget {
       body: Column(
         children: [
           Expanded(
-            child: MainScreenMap(
-              location: location.value,
-            ),
+            child: StreamBuilder<List<PolicePoint>>(
+                stream: GetIt.I.get<DataRepository>().policePointsStream.stream,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.active) {
+                    return MainScreenMap(
+                      location: location.value,
+                      policePoints: snapshot.data,
+                    );
+                  }
+                  return CupertinoActivityIndicator();
+                }),
           ),
           MainScreenReportButton(onTap: () {
             GetIt.I

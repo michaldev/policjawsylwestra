@@ -21,9 +21,26 @@ class FirebaseImpl extends DataRepository {
               radius: radius,
               field: 'position');
 
-      pointsFirebaseStream.listen((event) {
-        print(event);
-      });
+      final test = pointsFirebaseStream.map((snapShot) => snapShot
+          .map((e) => PolicePoint(
+              position: LatLng(position.latitude, position.longitude),
+              policeType: PoliceType.foot))
+          .toList());
+
+      policePointsStream.addStream(test);
+
+      // final policePoints = [];
+      // pointsFirebaseStream.listen((event) {
+      //   for (final obj in event) {
+      //     final position = obj.data()['position']['geopoint'] as GeoPoint;
+      //     final policePoint = PolicePoint(
+      //         position: LatLng(position.latitude, position.longitude),
+      //         policeType: PoliceType.foot);
+      //     policePoints.add(policePoint);
+      //   }
+      // });
+
+      // return policePoints;
     }
   }
 
@@ -36,7 +53,7 @@ class FirebaseImpl extends DataRepository {
 
       FirebaseFirestore.instance
           .collection('points')
-          .add({'name': 'random name', 'position': geoFirePoint});
+          .add({'name': 'random name', 'position': geoFirePoint.data});
     }
   }
 }
