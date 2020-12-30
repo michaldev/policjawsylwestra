@@ -8,6 +8,7 @@ Policja niezgodnie z konstytucją oraz słowami premiera Mateusza Morawieckiego 
 
 Celem stworzenia aplikacji jest: 
 
+- ułatwienie ofiarom przestępstw uzyskanie pomocy, dzięki odnalezieniu najbliższego patrolu policji.
 - wsparcie w ograniczaniu rozprzestrzeniania się koronawirusa (ograniczenie kumulacji wielu osób w jednym momencie + prewencja).
 - odciązenie sądów, które po Sylwestrze mogą zostać zblokowane odwołaniami mandatów.
 - pełnienie roli społeczno-edukacyjnej.

@@ -4,7 +4,9 @@ import 'package:get_it/get_it.dart';
 import 'package:latlong/latlong.dart';
 import 'package:location/location.dart';
 import 'package:policjawsylwestra/domain/data_repository.dart';
+import 'package:policjawsylwestra/ui/info_screen/info_screen.dart';
 import 'package:policjawsylwestra/ui/main_screen/main_screen_map.dart';
+import 'package:policjawsylwestra/ui/main_screen/main_screen_report_button.dart';
 
 class MainScreen extends HookWidget {
   @override
@@ -18,15 +20,27 @@ class MainScreen extends HookWidget {
     });
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Policja w pobliżu'),
+        actions: [
+          GestureDetector(
+            onTap: () => Navigator.push(
+                context, MaterialPageRoute(builder: (context) => InfoScreen())),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.info),
+            ),
+          )
+        ],
+      ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 60.0),
         child: FloatingActionButton(
           onPressed: () async {
             //test
-            final points = await GetIt.I
+            await GetIt.I
                 .get<DataRepository>()
-                .getNearestPolice(LatLng(9, 0));
-            print(points);
+                .getNearestPolice(LatLng(9, 0), 20);
 
             // Location().getLocation().then((value) {
             //   location.value = LatLng(value.latitude, value.longitude);
@@ -42,18 +56,11 @@ class MainScreen extends HookWidget {
               location: location.value,
             ),
           ),
-          Container(
-              width: MediaQuery.of(context).size.width,
-              height: 50,
-              color: Colors.red,
-              child: Center(
-                  child: Text(
-                'Zgłoś lokalizację policji'.toUpperCase(),
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold),
-              )))
+          MainScreenReportButton(onTap: () {
+            GetIt.I
+                .get<DataRepository>()
+                .addPoint(location.value, PoliceType.foot);
+          })
         ],
       ),
     );

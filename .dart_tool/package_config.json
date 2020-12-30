@@ -224,6 +224,12 @@
       "languageVersion": "2.1"
     },
     {
+      "name": "firestore_helpers",
+      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/firestore_helpers-3.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "fixnum",
       "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-0.10.11",
       "packageUri": "lib/",
@@ -280,6 +286,12 @@
     {
       "name": "flutter_web_plugins",
       "rootUri": "file:///Users/michal/Projekty/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "geoflutterfire",
+      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/geoflutterfire-2.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -549,7 +561,7 @@
     },
     {
       "name": "rxdart",
-      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.25.0",
+      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.24.1",
       "packageUri": "lib/",
       "languageVersion": "2.6"
     },
@@ -668,6 +680,12 @@
       "languageVersion": "2.2"
     },
     {
+      "name": "universal_platform",
+      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/universal_platform-0.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
       "name": "uuid",
       "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-2.2.2",
       "packageUri": "lib/",
@@ -734,7 +752,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-12-30T18:37:50.087654Z",
+  "generated": "2020-12-30T20:14:23.320420Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

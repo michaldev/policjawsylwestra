@@ -11,5 +11,6 @@ class PolicePoint {
 }
 
 abstract class DataRepository {
-  Future<List<PolicePoint>> getNearestPolice(LatLng position);
+  Future<void> getNearestPolice(LatLng position, double radius);
+  Future<void> addPoint(LatLng position, PoliceType policeType);
 }
