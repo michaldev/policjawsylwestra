@@ -1,5 +1,5 @@
 name: policjawsylwestra
-description: Prawo i niesprawiedliwość.
+description: Sylwester z Policją.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -20,6 +20,8 @@ dependencies:
   flutter_mobx: ^1.1.0
   location: ^3.2.1
   get_it: ^5.0.3
+  firebase_core: "0.5.3"
+  cloud_firestore: "^0.14.4"
 
 dev_dependencies:
   flutter_test:
