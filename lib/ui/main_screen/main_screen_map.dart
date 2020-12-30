@@ -4,11 +4,15 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
 
 class MainScreenMap extends HookWidget {
+  final LatLng location;
+
+  MainScreenMap({@required this.location});
+
   @override
   Widget build(BuildContext context) {
     return FlutterMap(
       options: new MapOptions(
-        center: new LatLng(52.229676, 21.012229),
+        center: location,
         zoom: 13.0,
       ),
       layers: [

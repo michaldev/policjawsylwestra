@@ -15,7 +15,13 @@ Celem stworzenia aplikacji jest:
 
 Aplikacja moze byc bezsensowna w innych krajach z mniej regorystycznymi przepisami i policją respektującą najwyzsze prawo. 
 
+Jak uruchomić projekt?
+1. Pobierz repozytorium i uruchom w dowolnym edytorze.
+2. Wpisz ```flutter packages pub run build_runner build```, żeby zbudować zależnosci dla mobx.
+3. Uruchom, np. za pomocą ```flutter run```.
+
 
 Lista zmian:
 - Inicjalizacja projektu [17:20]
 - Wstępny UI, poprawione README [18:10]
+- Lokalizacja użytkownika, DI, oddzielenie klasy aplikacji [19:25]
