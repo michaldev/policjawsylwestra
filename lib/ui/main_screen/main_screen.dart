@@ -8,20 +8,23 @@ import 'package:policjawsylwestra/domain/data_repository.dart';
 import 'package:policjawsylwestra/ui/info_screen/info_screen.dart';
 import 'package:policjawsylwestra/ui/main_screen/main_screen_map.dart';
 import 'package:policjawsylwestra/ui/main_screen/main_screen_report_button.dart';
+import 'package:policjawsylwestra/ui/report_screen/report_screen.dart';
 
 class MainScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final location = useState<LatLng>();
+    final dataRepository = GetIt.I.get<DataRepository>();
 
     useMemoized(() {
       Location().getLocation().then((value) {
         location.value = LatLng(value.latitude, value.longitude);
+        dataRepository.getNearestPolice(location.value, 80);
       });
-    });
-
-    GetIt.I.get<DataRepository>().policePointsStream.stream.listen((event) {
-      print(event);
+      Location().onLocationChanged.listen((event) {
+        location.value = LatLng(event.latitude, event.longitude);
+        dataRepository.getNearestPolice(location.value, 80);
+      });
     });
 
     return Scaffold(
@@ -38,21 +41,6 @@ class MainScreen extends HookWidget {
           )
         ],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 60.0),
-        child: FloatingActionButton(
-          onPressed: () async {
-            //test
-            await GetIt.I
-                .get<DataRepository>()
-                .getNearestPolice(location.value, 20);
-            // Location().getLocation().then((value) {
-            //   location.value = LatLng(value.latitude, value.longitude);
-            // });
-          },
-          child: Icon(Icons.refresh),
-        ),
-      ),
       body: Column(
         children: [
           Expanded(
@@ -68,11 +56,11 @@ class MainScreen extends HookWidget {
                   return CupertinoActivityIndicator();
                 }),
           ),
-          MainScreenReportButton(onTap: () {
-            GetIt.I
-                .get<DataRepository>()
-                .addPoint(location.value, PoliceType.foot);
-          })
+          MainScreenReportButton(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ReportScreen(location.value)))),
         ],
       ),
     );

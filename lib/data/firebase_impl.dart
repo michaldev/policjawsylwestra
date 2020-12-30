@@ -12,6 +12,8 @@ class FirebaseImpl extends DataRepository {
   @override
   Future<void> getNearestPolice(LatLng position, double radius) async {
     if (UniversalPlatform.isAndroid || UniversalPlatform.isIOS) {
+      Firebase.initializeApp();
+
       // GeoFlutterFire only for iOS/Android.
       final pointsFirebaseStream = Geoflutterfire()
           .collection(
@@ -21,13 +23,18 @@ class FirebaseImpl extends DataRepository {
               radius: radius,
               field: 'position');
 
-      final test = pointsFirebaseStream.map((snapShot) => snapShot
-          .map((e) => PolicePoint(
-              position: LatLng(position.latitude, position.longitude),
-              policeType: PoliceType.foot))
-          .toList());
+      final test = pointsFirebaseStream.map((snapShot) => snapShot.map((e) {
+            final position = (e.data()['position']['geopoint'] as GeoPoint);
+            return PolicePoint(
+                position: LatLng(position.latitude, position.longitude),
+                policeType: PoliceType.foot);
+          }).toList());
 
-      policePointsStream.addStream(test);
+      test.listen((event) {
+        policePointsStream.add(event);
+      });
+
+      // policePointsStream.addStream(test);
 
       // final policePoints = [];
       // pointsFirebaseStream.listen((event) {
@@ -53,7 +60,7 @@ class FirebaseImpl extends DataRepository {
 
       FirebaseFirestore.instance
           .collection('points')
-          .add({'name': 'random name', 'position': geoFirePoint.data});
+          .add({'policeType': policeType, 'position': geoFirePoint.data});
     }
   }
 }

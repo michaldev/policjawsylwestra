@@ -1,4 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+
+const description = '''
+*Apka pomoże Ci w razie problemów lub gdy zostaniesz poszkodowany odnaleźć najbliższy patrol policji.*
+
+------
+
+# Dane osobowe
+Aplikacja nie zbiera żadnych danych osobowych. 
+
+
+------
+
+
+# Zasady
+
+- Nigdy nie korzystaj z aplikacji podczas jazdy samochodem.
+- Aplikacja nie daje żadnych gwarancji działania.
+- Oprogramowanie jest darmowe i otwartoźródłowe.
+''';
 
 class InfoScreen extends StatelessWidget {
   @override
@@ -7,7 +27,9 @@ class InfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Informacje o aplikacji'),
       ),
-      body: Container(),
+      body: Markdown(
+        data: description,
+      ),
     );
   }
 }

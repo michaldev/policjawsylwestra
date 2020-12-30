@@ -12,6 +12,8 @@ class MainScreenMap extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mapController = useMemoized(() => MapController());
+
     final markers = <Marker>[];
 
     for (final policePoint in policePoints) {
@@ -24,16 +26,26 @@ class MainScreenMap extends HookWidget {
       ));
     }
 
+    markers.add(Marker(
+        width: 25.0,
+        height: 25.0,
+        point: location,
+        builder: (ctx) => Container(
+              decoration:
+                  BoxDecoration(shape: BoxShape.circle, color: Colors.green),
+            )));
+
     return FlutterMap(
-      options: new MapOptions(
+      mapController: mapController,
+      options: MapOptions(
         center: location,
         zoom: 13.0,
       ),
       layers: [
-        new TileLayerOptions(
+        TileLayerOptions(
             urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             subdomains: ['a', 'b', 'c']),
-        new MarkerLayerOptions(
+        MarkerLayerOptions(
           markers: markers,
         ),
       ],

@@ -224,12 +224,6 @@
       "languageVersion": "2.1"
     },
     {
-      "name": "firestore_helpers",
-      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/firestore_helpers-3.2.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.2"
-    },
-    {
       "name": "fixnum",
       "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-0.10.11",
       "packageUri": "lib/",
@@ -266,10 +260,22 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "flutter_launcher_icons",
+      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.8.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
+    },
+    {
       "name": "flutter_map",
       "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_map-0.10.1+1",
       "packageUri": "lib/",
       "languageVersion": "2.6"
+    },
+    {
+      "name": "flutter_markdown",
+      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_markdown-0.5.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
     },
     {
       "name": "flutter_mobx",
@@ -396,6 +402,12 @@
       "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/logging-0.11.4",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "markdown",
+      "rootUri": "file:///Users/michal/Projekty/flutter/.pub-cache/hosted/pub.dartlang.org/markdown-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "matcher",
@@ -752,7 +764,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-12-30T20:14:23.320420Z",
+  "generated": "2020-12-30T23:00:10.992380Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

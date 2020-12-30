@@ -13,8 +13,7 @@ class PolicePoint {
 }
 
 abstract class DataRepository {
-  StreamController policePointsStream =
-      StreamController<List<PolicePoint>>.broadcast();
+  StreamController policePointsStream = StreamController<List<PolicePoint>>();
 
   Future<void> getNearestPolice(LatLng position, double radius);
   Future<void> addPoint(LatLng position, PoliceType policeType);

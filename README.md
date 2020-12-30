@@ -28,3 +28,4 @@ Lista zmian:
 - Wstępny UI, poprawione README [18:10]
 - Lokalizacja użytkownika, DI, oddzielenie klasy aplikacji [19:25]
 - Wstępna konfiguracja Firebase'a [20:00]
+- Ekran raportowania, podgląd markerków z bazy danych, aktualizowanie lokalizacji, ikona [00:10]

@@ -8,5 +8,5 @@ GetIt locator = GetIt.instance;
 void setupDI() {
   Firebase.initializeApp();
 
-  locator.registerLazySingleton<DataRepository>(() => FirebaseImpl());
+  locator.registerSingleton<DataRepository>(FirebaseImpl());
 }
