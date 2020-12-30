@@ -8,13 +8,14 @@ Policja niezgodnie z konstytucją oraz słowami premiera Mateusza Morawieckiego 
 
 Celem stworzenia aplikacji jest: 
 
+- nauka programowania.
 - ułatwienie ofiarom przestępstw uzyskanie pomocy, dzięki odnalezieniu najbliższego patrolu policji.
 - wsparcie w ograniczaniu rozprzestrzeniania się koronawirusa (ograniczenie kumulacji wielu osób w jednym momencie + prewencja).
-- odciązenie sądów, które po Sylwestrze mogą zostać zblokowane odwołaniami mandatów.
+- odciążenie sądów, które po Nowym Roku mogą zostać zblokowane odwołaniami mandatów.
 - pełnienie roli społeczno-edukacyjnej.
 - pomoc policjantom - część z nich prawdopodobnie nie godzi się na to, niestety boją się na ryzykowne decyzje z powodu kryzysu.
 
-Aplikacja moze byc bezsensowna w innych krajach z mniej regorystycznymi przepisami i policją respektującą najwyższe prawo. 
+Aplikacja może byc bezsensowna w innych krajach z mniej regorystycznymi przepisami i policją respektującą najwyższe prawo. 
 
 Jak uruchomić projekt?
 1. Pobierz repozytorium i uruchom w dowolnym edytorze.
@@ -29,3 +30,4 @@ Lista zmian:
 - Lokalizacja użytkownika, DI, oddzielenie klasy aplikacji [19:25]
 - Wstępna konfiguracja Firebase'a [20:00]
 - Ekran raportowania, podgląd markerków z bazy danych, aktualizowanie lokalizacji, ikona [00:10]
+- Mapa w trybie ciemnym [00:25]

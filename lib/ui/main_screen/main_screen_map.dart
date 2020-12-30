@@ -43,7 +43,8 @@ class MainScreenMap extends HookWidget {
       ),
       layers: [
         TileLayerOptions(
-            urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            urlTemplate:
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
             subdomains: ['a', 'b', 'c']),
         MarkerLayerOptions(
           markers: markers,
