@@ -4,6 +4,8 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 const description = '''
 *Apka pomoże Ci w razie problemów lub gdy zostaniesz poszkodowany odnaleźć najbliższy patrol policji.*
 
+Nie została stworzona przez Polską Policję i nie ma z nią nic wspólnego.
+
 ------
 
 # Dane osobowe

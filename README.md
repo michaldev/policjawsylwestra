@@ -31,3 +31,4 @@ Lista zmian:
 - Wstępna konfiguracja Firebase'a [20:00]
 - Ekran raportowania, podgląd markerków z bazy danych, aktualizowanie lokalizacji, ikona [00:10]
 - Mapa w trybie ciemnym [00:25]
+- Poprawione zapytania o lokalizację i apka wrzucona do Gplay (czeka na weryfikację) [03:18]

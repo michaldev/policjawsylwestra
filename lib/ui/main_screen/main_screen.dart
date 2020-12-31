@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get_it/get_it.dart';
 import 'package:latlong/latlong.dart';
 import 'package:location/location.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:policjawsylwestra/domain/data_repository.dart';
 import 'package:policjawsylwestra/ui/info_screen/info_screen.dart';
 import 'package:policjawsylwestra/ui/main_screen/main_screen_map.dart';
@@ -17,6 +18,12 @@ class MainScreen extends HookWidget {
     final dataRepository = GetIt.I.get<DataRepository>();
 
     useMemoized(() {
+      Permission.location.status.then((value) {
+        if (value.isUndetermined || value.isDenied || value.isPermanentlyDenied) {
+          Permission.location.request();
+        }
+      });
+
       Location().getLocation().then((value) {
         location.value = LatLng(value.latitude, value.longitude);
         dataRepository.getNearestPolice(location.value, 80);
